@@ -6,13 +6,13 @@ const classnames = require("classnames");
 
 export default function DayListItem(props) {
 
-      const formatSpots = (props) => {
-        if (props < 1) {
+      const formatSpots = (spots) => {
+        if (spots < 1) {
           return "no spots remaining"
-        } else if (props === 1) {
-          return `${props} spot remaining`
+        } else if (spots === 1) {
+          return `${spots} spot remaining`
         }
-        return `${props} spots remaining`
+        return `${spots} spots remaining`
       }
 
       const buttonClass = classnames({
