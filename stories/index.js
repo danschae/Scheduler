@@ -97,7 +97,7 @@ storiesOf("Button", module)
           id={interviewer.id}
           name={interviewer.name}
           avatar={interviewer.avatar}
-          setInterviewer={() => action("setInterviewer")(interviewer.id)}
+          setInterviewer={() => action("onChange")(interviewer.id)}
         />
       ));
 
@@ -118,13 +118,13 @@ storiesOf("Button", module)
         .add("Initial", () => (
           <InterviewerList
             interviewers={interviewers}
-            setInterviewer={action("setInterviewer")}
+            setInterviewer={action("onChange")}
           />
         ))
         .add("Preselected", () => (
           <InterviewerList
             interviewers={interviewers}
-            interviewer={3}
-            setInterviewer={action("setInterviewer")}
+            value={3}
+            onChange={action("onChange")}
           />
         ));
