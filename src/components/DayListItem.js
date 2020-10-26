@@ -6,6 +6,15 @@ const classnames = require("classnames");
 
 export default function DayListItem(props) {
 
+      const formatSpots = (props) => {
+        if (props < 1) {
+          return "no spots remaining"
+        } else if (props === 1) {
+          return `${props} spot remaining`
+        }
+        return `${props} spots remaining`
+      }
+
       const buttonClass = classnames({
         "day-list__item": true,
         "day-list__item--selected": props.selected,
@@ -18,7 +27,7 @@ export default function DayListItem(props) {
         className={buttonClass}             
     >
       <h2>{props.name}</h2> 
-      <h3>{props.spots}</h3>
+      <h3>{formatSpots(props.spots)}</h3>
     </li>
   );
 }
