@@ -1,5 +1,5 @@
 import React, {} from "react";
-import "components/interviewerListItem.scss";
+import "components/InterviewerListItem.scss";
 const classnames = require("classnames");
 
 
@@ -13,7 +13,7 @@ export default function InterviewerListItem(props) {
 
   return (
     <li className={interviewClass}
-      onClick={() => {props.setInterviewer(props.name)}}
+      onClick={() => {props.setInterviewer(props.id)}}
     >
   <img
     className="interviewers__item-image"
