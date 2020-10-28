@@ -1,6 +1,6 @@
 
 // filtering days so the correct appointment shows up per day
-export default function getAppointmentsForDay(state, day) {
+export function getAppointmentsForDay(state, day) {
   let returnedAppointments = [];
   for (const currentDay of state.days) {
      if (currentDay.name === day && currentDay.appointments.length > 0) {
@@ -10,6 +10,17 @@ export default function getAppointmentsForDay(state, day) {
       }
    return returnedAppointments;
 };
+
+export  function getInterview(state, interview) {
+  let returnedObject = {};
+  if (interview !== null) {
+    returnedObject = interview;
+    let selectInterview = interview.interviewer
+    returnedObject.interviewer = state.interviewers[selectInterview]
+    return returnedObject
+  }
+  return null
+}
 
 
 
