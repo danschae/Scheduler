@@ -126,7 +126,7 @@ storiesOf("Button", module)
         .add("Initial", () => (
           <InterviewerList
             interviewers={interviewers}
-            setInterviewer={action("onChange")}
+            onChange={action("onChange")}
           />
         ))
         .add("Preselected", () => (
