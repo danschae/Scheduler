@@ -15,7 +15,7 @@ export default function useVisualMode(initialValue) {
 }
 
   const back = () => {
-    if (history.length > 1){
+    if (history.length > 1) {
     setMode(history[history.length - 2])
     setHistory(prev => {
       let newHistory = [... prev.slice(0, prev.length - 1)];

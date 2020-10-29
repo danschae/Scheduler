@@ -20,7 +20,18 @@ export  function getInterview(state, interview) {
     return returnedObject
   }
   return null
-}
+};
+
+export function getInterviewersForDay(state, day) {
+  let returnedInterviewers = [];
+  for (const currentDay of state.days) {
+     if (currentDay.name === day && currentDay.interviewers.length > 0) {
+          currentDay.interviewers.forEach(id => {returnedInterviewers.push(state.interviewers[id])})
+            return returnedInterviewers;
+        } 
+      }
+   return returnedInterviewers;
+};
 
 
 
