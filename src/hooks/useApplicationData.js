@@ -2,6 +2,8 @@ import {useState} from "react";
 import axios from "axios"
 
 export default function useApplicationData() {
+
+
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -19,10 +21,23 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    setState({...state, appointments})
+
+    const dayInfo = {...state.days.find(currentDay => currentDay.name === state.day)};
+
+    const filteredDayinfo = dayInfo.appointments.filter(id => appointments[id].interview === null)
+
+    dayInfo.spots = filteredDayinfo.length;
+    
+    const updatedDays = state.days.map(day => day.id === dayInfo.id ? dayInfo : day)
+
+    state.days = [...updatedDays];
+
+    const days = state.days
+    
+
     return axios.put(`/api/appointments/${id}`, appointment)
     .then(() => {
-      setState(prev => ({...prev, appointments}))
+      setState(prev => ({...prev, appointments, days}))
     })
   };
 
@@ -37,14 +52,28 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
+    const dayInfo = {...state.days.find(currentDay => currentDay.name === state.day)};
+
+    const filteredDayinfo = dayInfo.appointments.filter(id => appointments[id].interview === null)
+
+    dayInfo.spots = filteredDayinfo.length;
+
+    const updatedDays = state.days.map(day => day.id === dayInfo.id ? dayInfo : day)
+
+    state.days = [...updatedDays];
+
+    const days = state.days
+
+
     return axios.delete(`/api/appointments/${id}`, appointment)
     .then(() => {
-      setState(prev => ({...prev, appointments}))
+      setState(prev => ({...prev, updatedDays, appointments, days}))
     })
+  };
 
-  }
+  const setDay = day => setState({...state, day})
 
-  return {state, setState, bookInterview, cancelInterview}
+  return {state, setState, bookInterview, cancelInterview, setDay}
 
 
 }

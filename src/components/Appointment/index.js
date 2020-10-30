@@ -84,7 +84,6 @@ export default function Appointment(props) {
         value={props.interview.interviewer.id}
         interviewers={props.interviewers}
         onCancel={() => back()}
-        bookInterview={props.bookInterview}
         onSave={save}
       />)}
       {mode === ERROR_DELETE && <Error  message={"Could not delete, sorrrrry"}  onClose={() => back()} />}

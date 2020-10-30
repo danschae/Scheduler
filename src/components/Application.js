@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import axios from "axios"
 import "components/Application.scss";
 import DayList from "components/DayList";
@@ -12,9 +12,9 @@ import useApplicationData from "hooks/useApplicationData"
 
 export default function Application(props) {
 
-  const {state, setState, bookInterview, cancelInterview} = useApplicationData()
+  const {state, setState, bookInterview, cancelInterview, setDay} = useApplicationData();
 
-  // store the appointments per day in a varialbe to be mapped
+  // store the appointments per day in a variable to be mapped
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   
   const schedule = dailyAppointments.map((appointment) => {
@@ -33,8 +33,6 @@ export default function Application(props) {
       />
     );
   })
-  
-  const setDay = day => setState({...state, day})
   
   useEffect(() => {
     Promise.all([
