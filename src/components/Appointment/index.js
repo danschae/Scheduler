@@ -35,15 +35,7 @@ export default function Appointment(props) {
     .then(() => {transition(SHOW)})
     .catch(() => {transition(ERROR_SAVE, true)})  
   }
-
-  function transferConfirm() {
-    transition(CONFIRM)
-  }
-
-  function transferEdit() {
-    transition(EDIT)
-  }
-
+  
   function deleteInterview() {
     transition(DELETING, true)
     props.cancelInterview(props.id)
@@ -62,8 +54,8 @@ export default function Appointment(props) {
       <Show
         student={props.interview.student}
         interviewer={props.interview.interviewer.name}
-        transfer={transferConfirm}
-        edit={transferEdit}
+        transfer={() => {transition(CONFIRM)}}
+        edit={() => {transition(EDIT)}}
       />
       )}
         {mode === CREATE && (
