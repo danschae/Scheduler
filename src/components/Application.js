@@ -4,7 +4,7 @@ import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment/index"
 import {getAppointmentsForDay, getInterview, getInterviewersForDay} from "../helpers/selectors"
-import useApplicationData,{SET_DAY, SET_INTERVIEW, SET_APPLICATION_DATA} from "hooks/useApplicationData"
+import useApplicationData,{SET_APPLICATION_DATA} from "hooks/useApplicationData"
 
 
 
