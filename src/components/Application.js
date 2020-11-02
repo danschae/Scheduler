@@ -4,7 +4,7 @@ import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment/index"
 import {getAppointmentsForDay, getInterview, getInterviewersForDay} from "../helpers/selectors"
-import useApplicationData from "hooks/useApplicationData"
+import useApplicationData,{SET_DAY, SET_INTERVIEW, SET_APPLICATION_DATA} from "hooks/useApplicationData"
 
 
 
@@ -12,7 +12,7 @@ import useApplicationData from "hooks/useApplicationData"
 
 export default function Application(props) {
 
-  const {state, setState, bookInterview, cancelInterview, setDay} = useApplicationData();
+  const {state, dispatch, bookInterview, cancelInterview} = useApplicationData();
 
   // store the appointments per day in a variable to be mapped
   const dailyAppointments = getAppointmentsForDay(state, state.day);
@@ -41,7 +41,7 @@ export default function Application(props) {
       axios.get("api/interviewers")
     ]).then((all) => {
       console.log(all)
-      setState(prev => ({...prev, days:all[0].data, appointments:all[1].data, interviewers:all[2].data}))
+      dispatch({type: SET_APPLICATION_DATA, days:all[0].data, appointments:all[1].data, interviewers:all[2].data})
     })
   },[])
   
@@ -58,7 +58,7 @@ export default function Application(props) {
             <DayList
               days={state.days}
               day={state.day}
-              setDay={setDay}
+              setDay={dispatch}
             />
           </nav>
           <img
