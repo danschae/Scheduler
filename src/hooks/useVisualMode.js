@@ -9,7 +9,7 @@ export default function useVisualMode(initialValue) {
       history[history.length - 1] = value
       setHistory(history) 
     } else {
-      setHistory(prev => [... prev, value]);
+      setHistory(prev => [...prev, value]);
     }
     setMode(value)
 }
@@ -18,7 +18,7 @@ export default function useVisualMode(initialValue) {
     if (history.length > 1) {
     setMode(history[history.length - 2])
     setHistory(prev => {
-      let newHistory = [... prev.slice(0, prev.length - 1)];
+      let newHistory = [...prev.slice(0, prev.length - 1)];
       return newHistory
     });
   }
