@@ -90,11 +90,5 @@ function reducer(state, action) {
     })
   };
   
-
-  // const setDay = day => dispatch({type: SET_DAY, day,})
-
-
   return {state, dispatch, bookInterview, cancelInterview}
-
-
 }
