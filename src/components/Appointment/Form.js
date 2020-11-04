@@ -20,8 +20,9 @@ export default function Form(props) {
     props.onCancel()
   }
 
+  // ensure that form will can't be blank
   function validate() {
-    
+
     if (name === "" && interviewer < 1) {
       setError("Fill everything in, what ya doing?!");
       return;
@@ -53,9 +54,6 @@ export default function Form(props) {
         placeholder="Enter Student Name"
         onChange={(event) => setName(event.target.value)}
         data-testid="student-name-input"
-        /*
-          This must be a controlled component
-        */
       />
     </form>
     <section className="appointment__validation">{error}</section>
