@@ -3,7 +3,7 @@ import React from "react";
 
 import axios from "axios";
 
-import { render, waitForElement, getByText, prettyDOM, getAllByTestId, getByPlaceholderText, getByAltText, fireEvent, queryByText, getAllByDisplayValue } from "@testing-library/react";
+import { render, waitForElement, getByText, prettyDOM, getAllByTestId, getByPlaceholderText, getByAltText, fireEvent, queryByText } from "@testing-library/react";
 
 import Application from "components/Application";
 
