@@ -1,5 +1,5 @@
 import React, {} from "react";
-import "./InterviewerListItem.scss";
+import "components/InterviewerListItem.scss";
 const classnames = require("classnames");
 
 
