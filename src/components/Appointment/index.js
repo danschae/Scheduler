@@ -9,6 +9,7 @@ import Confirm from "components/Appointment/Confirm"
 import Error from "components/Appointment/Error"
 import useVisualMode from "hooks/useVisualMode"
 
+// modes for transitions
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE"
@@ -24,7 +25,7 @@ export default function Appointment(props) {
   const {mode, transition, back} = useVisualMode(
     props.interview ? SHOW : EMPTY
   )
-
+  
   function save(name, interviewer) {
     const interview = {
       student: name,

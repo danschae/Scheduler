@@ -1,23 +1,23 @@
 # Interview Scheduler
 
-## Setup
+## Description
+A scheduler app built using React. Perfect for students who need to book appointments with interviewers!
 
-Install dependencies with `npm install`.
+## List of Dependencies
+- Node.js;
+- Axios;
+- Classnames;
+- Normalize.css;
+- @testing-library/react-hooks;
+- react-test-renderer
 
-## Running Webpack Development Server
+## Getting Started
 
-```sh
-npm start
-```
+- Install dependencies with `npm install`.
+- Run with: npm start;
+- Test with: npm test;
+- Run storybook with: npm run storybook
 
-## Running Jest Test Framework
+## Links
+- To view website running on Heroku's server, please go to https://dreamy-wilson-ddeef1.netlify.app/;
 
-```sh
-npm test
-```
-
-## Running Storybook Visual Testbed
-
-```sh
-npm run storybook
-```

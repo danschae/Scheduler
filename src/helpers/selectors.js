@@ -24,7 +24,7 @@ export function getInterview(state, interview) {
       "avatar": state.interviewers[interview.interviewer].avatar
     }
   }
-    return returnedObject
+    return returnedObject;
   }
   return null
 };
@@ -39,7 +39,7 @@ export function getInterviewersForDay(state, day) {
 
   const interviewers = dayFound.interviewers.map(appointmentId => state.interviewers[appointmentId]);
 
-  return interviewers
+  return interviewers;
 };
 
 

@@ -9,7 +9,7 @@ export default function Form(props) {
   const [error, setError] = useState("");
 
 
-  // used to reset the form
+  // reset and cancel functions are split up to ensure modularity
   const reset = () => {
     setName("")
     setInterviewer(null)
@@ -20,7 +20,7 @@ export default function Form(props) {
     props.onCancel()
   }
 
-  // ensure that form will can't be blank
+  // ensure that form can't be blank
   function validate() {
 
     if (name === "") {

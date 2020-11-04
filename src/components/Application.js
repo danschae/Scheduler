@@ -34,6 +34,7 @@ export default function Application(props) {
     );
   })
   
+  // api requests for getting data
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),

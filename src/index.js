@@ -7,6 +7,7 @@ import Application from "components/Application";
 
 import axios from "axios";
 
+// using base url for netlify
 if (process.env.REACT_APP_API_BASE_URL) {
   axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 }

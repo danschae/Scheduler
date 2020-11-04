@@ -31,7 +31,7 @@ function reducer(state, action) {
 
 
   const bookInterview = (id, interview) => {
-    
+    // copy previous state
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -41,16 +41,16 @@ function reducer(state, action) {
       [id]: appointment
     };
 
+    // find current day and calculate amount of spots remaining
     const dayInfo = {...state.days.find(currentDay => currentDay.name === state.day)};
-
     const filteredDayinfo = dayInfo.appointments.filter(id => appointments[id].interview === null)
-
     dayInfo.spots = filteredDayinfo.length;
-    
+
+    // map through days, make sure if the spots have changed, then it'll be uploaded to the schedule
     const updatedDays = state.days.map(day => day.id === dayInfo.id ? dayInfo : day)
 
+    //  copy previous state, assign it to a const and then set the state
     state.days = [...updatedDays];
-
     const days = state.days
     
 
@@ -70,11 +70,9 @@ function reducer(state, action) {
       ...state.appointments,
       [id]: appointment
     };
-
+    // for the below, it's the same as bookInterview
     const dayInfo = {...state.days.find(currentDay => currentDay.name === state.day)};
-
     const filteredDayinfo = dayInfo.appointments.filter(id => appointments[id].interview === null)
-
     dayInfo.spots = filteredDayinfo.length;
 
     const updatedDays = state.days.map(day => day.id === dayInfo.id ? dayInfo : day)
