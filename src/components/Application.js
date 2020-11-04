@@ -43,7 +43,7 @@ export default function Application(props) {
       console.log(all)
       dispatch({type: SET_APPLICATION_DATA, days:all[0].data, appointments:all[1].data, interviewers:all[2].data})
     })
-  },[])
+  },[dispatch])
   
   return (
     <main className="layout">
