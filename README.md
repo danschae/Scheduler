@@ -3,6 +3,12 @@
 ## Description
 A scheduler app built using React. Perfect for students who need to book appointments with interviewers!
 
+## Final Product
+
+!["Homepage"](https://github.com/danschae/Scheduler/blob/master/docs/homepage.png)
+!["Fill in form"](https://github.com/danschae/Scheduler/blob/master/docs/Fill_Form_page.png)
+!["Confirmation Page"](https://github.com/danschae/Scheduler/blob/master/docs/Deletion_Confirmation_page.png)
+
 ## List of Dependencies
 - Node.js;
 - Axios;
